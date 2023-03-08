@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <textarea>
+            #include <stdio.h>
+                #include <stdlib.h>
+                struct stack
+                {
+                int size;
+                int top;
+                int *arr;
+                };
+                int isEmpty(struct stack *ptr) // checking if stack is empty on not
+                {
+                if (ptr->top == -1)
+                {
+                return 1;
+                }
+                else
+                {
+                return 0;
+                }
+                }
+                int isFull(struct stack *ptr)
+                {
+                Name: Sumit Jadhav Roll No : A120(FYMCA) Subject : DSA Laboratory
+                if (ptr->top == ptr->size - 1)
+                {
+                return 1;
+                }
+                else
+                {
+                return 0;
+                }
+                }
+                void push(struct stack *ptr, int value)
+                {
+                if (isFull(ptr))
+                {
+                printf("stack overflow \n");
+                }
+                else
+                {
+                ptr->top++;
+                ptr->arr[ptr->top] = value;
+                }
+                }
+                int pop(struct stack *ptr)
+                {
+                if (isFull(ptr))
+                {
+                printf("stack overflow \n");
+                return 0;
+                }
+                else
+                {
+                int value = ptr->arr[ptr->top];
+                ptr->top--;
+                return value;
+                }
+                }
+                int main()
+                {
+                struct stack *sp = (struct stack *)malloc(sizeof(struct stack));
+                sp->size = 10;
+                sp->top = -1;
+                sp->arr = (int *)malloc(sp->size * sizeof(int));
+                printf("The stack has been created succesfully \n");
+                printf("%d\n", isFull(sp));
+                printf("%d\n", isEmpty(sp));
+                push(sp, 589);
+                push(sp, 7512);
+                push(sp, 859);
+                push(sp, 7889);
+                push(sp, 542);
+                push(sp, 545);
+                push(sp, 5452);
+                push(sp, 8962);
+                push(sp, 596);
+                printf("%d\n", isFull(sp));
+                printf("%d\n", isEmpty(sp));
+                printf(" Poped/ deleted %d from the stack \n", pop(sp));
+                printf(" Poped/ deleted %d from the stack \n", pop(sp));
+                printf(" Poped/ deleted %d from the stack \n", pop(sp));
+                printf(" Poped/ deleted %d from the stack \n", pop(sp));
+                printf(" Poped/ deleted %d from the stack \n", pop(sp));
+                return 0;
+                }
+        </textarea>
+    </div>
+    
+</body>
+</html>

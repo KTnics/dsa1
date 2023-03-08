@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <textarea>
+            #include <stdio.h>
+                #include <stdlib.h>
+                // Definition of a node in the binary tree
+                struct Node {
+                int data;
+                struct Node* left;
+                struct Node* right;
+                };
+                // Function to create a new node in the binary tree
+                struct Node* newNode(int data) {
+                struct Node* node = (struct Node*) malloc(sizeof(struct Node));
+                node->data = data;
+                node->left = NULL;
+                node->right = NULL;
+                return node;
+                }
+                // Function to find the height of the binary tree
+                int height(struct Node* node) {
+                if (node == NULL) {
+                return 0;
+                Name: Sumit Jadhav Roll No : A120(FYMCA) Subject : DSA Laboratory
+                } else {
+                int leftHeight = height(node->left);
+                int rightHeight = height(node->right);
+                return 1 + ((leftHeight > rightHeight) ? leftHeight : rightHeight);
+                }
+                }
+                // Function to print the leaf nodes of the binary tree
+                void printLeafNodes(struct Node* node) {
+                if (node == NULL) {
+                return;
+                } else if (node->left == NULL && node->right == NULL) {
+                printf("%d ", node->data);
+                } else {
+                printLeafNodes(node->left);
+                printLeafNodes(node->right);
+                }
+                }
+                // Function to find the mirror image of the binary tree
+                void mirror(struct Node* node) {
+                if (node == NULL) {
+                return;
+                } else {
+                struct Node* temp = node->left;
+                node->left = node->right;
+                node->right = temp;
+                mirror(node->left);
+                mirror(node->right);
+                }
+                }
+                // Function to print the binary tree level-wise
+                void printLevel(struct Node* node, int level) {
+                if (node == NULL) {
+                return;
+                } else if (level == 1) {
+                printf("%d ", node->data);
+                } else {
+                printLevel(node->left, level - 1);
+                printLevel(node->right, level - 1);
+                }
+                }
+                // Function to print the binary tree level-wise
+                void printLevelOrder(struct Node* node) {
+                int h = height(node);
+                for (int i = 1; i <= h; i++) {
+                printLevel(node, i);
+                }
+                }
+                int main() {
+                // Create a binary tree
+                struct Node* root = newNode(1);
+                root->left = newNode(2);
+                root->right = newNode(3);
+                root->left->left = newNode(4);
+                root->left->right = newNode(5);
+                root->right->right = newNode(6);
+                // Find the height of the binary tree
+                int treeHeight = height(root);
+                printf("Height of the binary tree: %d\n", treeHeight);
+                // Print the leaf nodes of the binary tree
+                printf("Leaf nodes of the binary tree: ");
+                printLeafNodes(root);
+                printf("\n");
+                // Find the mirror image of the binary tree
+                mirror(root);
+                // Print the original and mirror image of the binary tree level-wise
+                printf("Original binary tree level-wise: ");
+                printLevelOrder(root);
+                printf("\n");
+                printf("Mirror image of the binary tree level-wise: ");
+                printLevelOrder(root);
+                return 0;
+                }
+        </textarea>
+    </div>
+</body>
+</html>

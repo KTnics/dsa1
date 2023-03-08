@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <textarea>
+            #include <stdio.h>
+                #include <stdlib.h>
+                // Define a node structure
+                struct node {
+                int data;
+                struct node *next;
+                };
+                // Declare a pointer to the head of the linked list
+                struct node *head = NULL;
+                // Function to create a new node
+                struct node* create_node(int data) {
+                struct node *new_node = (struct node*) malloc(sizeof(struct node));
+                new_node->data = data;
+                new_node->next = NULL;
+                return new_node;
+                }
+                // Function to insert a new node at the beginning of the linked list
+                void insert_node(int data) {
+                struct node *new_node = create_node(data);
+                new_node->next = head;
+                head = new_node;
+                Name: Sumit Jadhav Roll No : A120(FYMCA) Subject : DSA Laboratory
+                printf("Node inserted successfully.\n");
+                }
+                // Function to delete a node from the linked list
+                void delete_node(int data) {
+                if (head == NULL) {
+                printf("Linked list is empty.\n");
+                return;
+                }
+                struct node *temp = head;
+                struct node *prev = NULL;
+                // Traverse the linked list to find the node to be deleted
+                while (temp != NULL && temp->data != data) {
+                prev = temp;
+                temp = temp->next;
+                }
+                // If the node to be deleted is not found
+                if (temp == NULL) {
+                printf("Node not found.\n");
+                return;
+                }
+                // If the node to be deleted is the first node
+                if (prev == NULL) {
+                head = temp->next;
+                }
+                else {
+                prev->next = temp->next;
+                }
+                free(temp);
+                printf("Node deleted successfully.\n");
+                }
+                // Function to display the linked list
+                void display_list() {
+                if (head == NULL) {
+                printf("Linked list is empty.\n");
+                return;
+                }
+                struct node *temp = head;
+                while (temp != NULL) {
+                printf("%d ", temp->data);
+                temp = temp->next;
+                }
+                printf("\n");
+                }
+                int main() {
+                int choice, data;
+                while (1) {
+                printf("1. Insert a node\n");
+                printf("2. Delete a node\n");
+                printf("3. Display the list\n");
+                printf("4. Exit\n");
+                printf("Enter your choice: ");
+                scanf("%d", &choice);
+                switch(choice) {
+                case 1:
+                printf("Enter data to be inserted: ");
+                scanf("%d", &data);
+                insert_node(data);
+                break;
+                case 2:
+                printf("Enter data to be deleted: ");
+                scanf("%d", &data);
+                delete_node(data);
+                break;
+                case 3:
+                display_list();
+                break;
+                case 4:
+                exit(0);
+                default:
+                printf("Invalid choice.\n");
+                }
+                }
+                return 0;
+                }
+                
+        </textarea>
+    </div>
+</body>
+</html>

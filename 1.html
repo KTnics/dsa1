@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <textarea>
+        #include <stdio.h>
+            #include <limits.h>
+            int main() {
+            int n;
+            printf("Enter the number of students: ");
+            scanf("%d", &n);
+            int marks[n];
+            int sum = 0;
+            int highest = INT_MIN;
+            int lowest = INT_MAX;
+            for (int i = 0; i < n; i++) {
+            printf("Enter marks for student %d: ", i+1);
+            scanf("%d", &marks[i]);
+            sum += marks[i];
+            if (marks[i] > highest) {
+            highest = marks[i];
+            }
+            if (marks[i] < lowest) {
+            lowest = marks[i];
+            Name: Sumit Jadhav Roll No : A120(FYMCA) Subject : DSA Laboratory
+            }
+            }
+            float average = (float) sum / n;
+            printf("Average score: %f\n", average);
+            printf("Highest score: %d\n", highest);
+            printf("Lowest score: %d\n", lowest);
+            return 0;
+            }
+        </textarea>
+    </div>
+</body>
+</html>
